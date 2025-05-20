@@ -232,14 +232,11 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             
-    // Verifica se o usuário e senha correspondem aos valores pré-definidos
-    if (username === "admin" && password === "cobaia123") {
-        // Redireciona para a página "centro.html" se o login for bem-sucedido
-        window.location.href = "centro.html";    
-        
+            if(username && password) {
+                // Here you would typically send this data to your server
+                console.log('Login attempt:', { username, password });
                 alert('Login realizado com sucesso!');
                 // Redirect or perform further actions
- 
             } else {
                 alert('Por favor, preencha todos os campos.');
             }
