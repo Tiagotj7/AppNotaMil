@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Mil - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .phone-frame {
+            width: 320px;
+            height: 640px;
+            border-radius: 30px;
+            background-color: white;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .top-header {
+            background-color: #000;
+            height: 220px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="%23000"/><path d="M0 0 L100 100 M30 0 L100 70 M60 0 L100 40 M0 30 L70 100 M0 60 L40 100" stroke="%23222" stroke-width="1"/></svg>');
+            opacity: 0.15;
+        }
+
+        .blue-dot {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #30BCED;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .dot-1 {
+            top: 20px;
+            left: 20px;
+        }
+
+        .dot-2 {
+            top: 20px;
+            right: 20px;
+        }
+
+        .dot-3 {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .dot-4 {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .logo-container {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .brain-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #30BCED;
+            position: relative;
+            margin: 0 5px;
+        }
+
+        .brain-icon::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2330BCED"><path d="M12 2C7.58 2 4 5.58 4 10c0 2.03.76 3.87 2 5.28V16c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-.72c1.24-1.41 2-3.25 2-5.28 0-4.42-3.58-8-8-8zm4 12h-1.5v1.5h-1v-1.5h-3v1.5h-1v-1.5H8v-1h1.5V8.5h1V13h3V8.5h1V13H16v1z"/></svg>');
+            background-repeat: no-repeat;
+        }
+
+        .login-container {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            align-self: flex-start;
+            font-size: 12px;
+            color: #30BCED;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .login-btn:hover {
+            background-color: #222;
+        }
+
+        .forgot-password {
+            color: #30BCED;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="top-header">
+            <div class="blue-dot dot-1"></div>
+            <div class="blue-dot dot-2"></div>
+            <div class="blue-dot dot-3"></div>
+            <div class="blue-dot dot-4"></div>
+            
+            <div class="logo-container">
+                <div class="logo-text">APRENDA · CRESÇA · CONQUISTE</div>
+                <div class="logo">
+                    NOTA
+                    <span class="brain-icon"></span>
+                    MIL
+                </div>
+            </div>
+        </div>
+        
+        <div class="login-container">
+            <h1>Login</h1>
+            <p class="subtitle">Faça login para continuar</p>
+            
+            <form id="loginForm">
+                <label class="input-label">NOME</label>
+                <input type="text" class="input-field" id="username" required>
+                
+                <label class="input-label">SENHA</label>
+                <input type="password" class="input-field" id="password" required>
+                
+                <button type="submit" class="login-btn">Log in</button>
+            </form>
+            
+            <a href="#" class="forgot-password">Esqueci minha senha!</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if(username && password) {
+                // Here you would typically send this data to your server
+                console.log('Login attempt:', { username, password });
+                alert('Login realizado com sucesso!');
+                // Redirect or perform further actions
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+    </script>
+</body>
+</html>
