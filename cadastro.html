@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Mil - Criar Conta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .phone-frame {
+            width: 320px;
+            height: 640px;
+            border-radius: 30px;
+            background-color: white;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .top-header {
+            background-color: #000;
+            height: 80px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .top-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(22, 41, 70, 0.6) 20%, transparent 60%);
+            background-size: 70px 70px;
+            background-position: 0 0, 35px 35px;
+            opacity: 0.5;
+        }
+
+        .back-button {
+            z-index: 2;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .register-container {
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+            color: #222;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-link {
+            color: #30BCED;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        .input-label {
+            font-size: 12px;
+            color: #30BCED;
+            margin-bottom: 5px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #E8E8E8;
+        }
+
+        .input-field::placeholder {
+            color: #888;
+        }
+
+        .select-field {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #E8E8E8;
+            appearance: none;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .select-field:focus {
+            outline: none;
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .register-btn:hover {
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="top-header">
+            <button class="back-button">←</button>
+        </div>
+        
+        <div class="register-container">
+            <h1>Criar uma nova Conta</h1>
+            <p class="subtitle">Já Registrado? Faça <a href="index.html" class="login-link">login aqui</a></p>
+            
+            <form id="registerForm">
+                <label class="input-label">NOME</label>
+                <input type="text" class="input-field" id="name" placeholder="Clara Martins" required>
+                
+                <label class="input-label">EMAIL</label>
+                <input type="email" class="input-field" id="email" placeholder="hello@reallygreatsite.com" required>
+                
+                <label class="input-label">SENHA</label>
+                <input type="password" class="input-field" id="password" placeholder="******" required>
+                
+                <label class="input-label">DATA DE NASCIMENTO</label>
+                <select class="select-field" id="birthdate" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                </select>
+                
+                <button type="submit" class="register-btn">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const birthdate = document.getElementById('birthdate').value;
+            
+            if(name && email && password && birthdate) {
+                // Here you would typically send this data to your server
+                console.log('Registration data:', { name, email, password, birthdate });
+                alert('Cadastro realizado com sucesso!');
+                // Redirect to login page
+                window.location.href = 'index.html';
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+
+        document.querySelector('.back-button').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
