@@ -234,12 +234,11 @@
             
             if(username && password) {
                 // Here you would typically send this data to your server
-                console.log('Login attempt:', { username, password }){
-                            // Redireciona para a página "centro.html" se o login for bem-sucedido
-        window.location.href = "cadastro.html"; 
-                    
+                console.log('Login attempt:', { username, password }){               
                 alert('Login realizado com sucesso!');
                 // Redirect or perform further actions
+                                                // Redireciona para a página "centro.html" se o login for bem-sucedido
+        window.location.href = "cadastro.html"; 
             } else {
                 alert('Por favor, preencha todos os campos.');
             }
